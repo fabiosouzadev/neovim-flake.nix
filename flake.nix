@@ -6,12 +6,21 @@
     flake-utils.url = "github:numtide/flake-utils";
     gen-luarc.url = "github:mrcjkb/nix-gen-luarc-json";
 
+    # Plugins overlays
+    awesome-neovim-plugins.url = "github:m15a/flake-awesome-neovim-plugins";
+    nixneovimplugins.url = "github:jooooscha/nixpkgs-vim-extra-plugins";
+    # ^ Plugins overlays
+
     # Add bleeding-edge plugins here.
     # They can be updated with `nix flake update` (make sure to commit the generated flake.lock)
     # wf-nvim = {
     #   url = "github:Cassin01/wf.nvim";
     #   flake = false;
     # };
+    avante-ia = {
+      url = "github:yetone/avante.nvim";
+      flake = false;
+    };
   };
 
   outputs = inputs @ {
@@ -19,6 +28,8 @@
     nixpkgs,
     flake-utils,
     gen-luarc,
+    awesome-neovim-plugins,
+    nixneovimplugins,
     ...
   }: let
     supportedSystems = [
@@ -41,6 +52,9 @@
           # containing the Neovim API all plugins in the workspace directory.
           # The generated file can be symlinked in the devShell's shellHook.
           gen-luarc.overlays.default
+          # This adds the plugins overlays
+          awesome-neovim-plugins.overlays.default
+          nixneovimplugins.overlays.default
         ];
       };
       shell = pkgs.mkShell {
