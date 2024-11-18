@@ -1,10 +1,13 @@
 # This overlay, when applied to nixpkgs, adds the final neovim derivation to nixpkgs.
 {inputs}: final: prev: let
   pkgs = final;
-
   # Make sure we use the pinned nixpkgs instance for wrapNeovimUnstable,
   # otherwise it could have an incompatible signature when applying this overlay.
-  pkgs-wrapNeovim = inputs.nixpkgs.legacyPackages.${pkgs.system};
+  pkgs-wrapNeovim =
+    inputs.nixpkgs.legacyPackages.${pkgs.system}
+    // {
+      overlays = [inputs.awesomeNeovimPlugins.overlays.default];
+    };
 
   # This is the helper function that builds the Neovim derivation.
   mkNeovim = pkgs.callPackage ./mkNeovim.nix {inherit pkgs-wrapNeovim;};
