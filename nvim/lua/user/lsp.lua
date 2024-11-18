@@ -223,7 +223,27 @@ local servers = {
   -- But for many setups, the LSP (`ts_ls`) will work just fine
   -- ts_ls = {},
   --
-
+  diagnosticls = {
+    filetypes = { 'python', 'php', 'nix' },
+    init_options = {
+      filetypes = {
+        python = 'black',
+        -- php = '',
+        nix = 'alejandra',
+      },
+      formatFiletypes = {
+        python = { 'black' },
+        nix = { 'alejandra' },
+      },
+      formatters = {
+        black = {
+          command = 'black',
+          args = { '--quiet', '-' },
+          rootPatterns = { 'pyproject.toml' },
+        },
+      },
+    },
+  },
   lua_ls = {
     -- cmd = {...},
     -- filetypes = { ...},
@@ -238,7 +258,17 @@ local servers = {
       },
     },
   },
-  pyright = {},
+  pyright = {
+    settings = {
+      python = {
+        analysis = {
+          autoSearchPaths = true,
+          diagnosticMode = 'workspace',
+          useLibraryCodeForTypes = true,
+        },
+      },
+    },
+  },
 }
 -- Initialize servers
 local lspconfig = require('lspconfig')
