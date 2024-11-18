@@ -1,12 +1,15 @@
 local cmd = vim.cmd
 local fn = vim.fn
-local opt = vim.o
+local opt = vim.opt
 local g = vim.g
 
--- <leader> key. Defaults to `\`. Some people prefer space.
--- g.mapleader = ' '
--- g.maplocalleader = ' '
+-- Set <space> as the leader key
+-- See `:help mapleader`
+g.mapleader = ' '
+g.maplocalleader = ' '
+g.editorconfig = true
 
+opt.colorcolumn = '100'
 opt.compatible = false
 
 -- Enable true colour support
@@ -36,6 +39,7 @@ opt.softtabstop = 2
 opt.shiftwidth = 2
 opt.foldenable = true
 opt.history = 2000
+opt.updatetime = 250 -- Decrease update time
 opt.nrformats = 'bin,hex' -- 'octal'
 opt.undofile = true
 opt.splitright = true
@@ -44,6 +48,16 @@ opt.cmdheight = 0
 
 opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 
+-- Sets how neovim will display certain whitespace characters in the editor.
+--  See `:help 'list'`
+--  and `:help 'listchars'`
+opt.list = true
+opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+
+-- Sync clipboard between OS and Neovim.
+--  Remove this option if you want your OS clipboard to remain independent.
+--  See `:help 'clipboard'`
+opt.clipboard = 'unnamedplus'
 -- Configure Neovim diagnostic messages
 
 local function prefix_diagnostic(prefix, diagnostic)
@@ -91,10 +105,6 @@ vim.diagnostic.config {
     prefix = '',
   },
 }
-
-g.editorconfig = true
-
-vim.opt.colorcolumn = '100'
 
 -- Native plugins
 cmd.filetype('plugin', 'indent', 'on')
