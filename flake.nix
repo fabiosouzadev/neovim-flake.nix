@@ -6,6 +6,11 @@
     flake-utils.url = "github:numtide/flake-utils";
     gen-luarc.url = "github:mrcjkb/nix-gen-luarc-json";
 
+    # Last neovim version
+    neovim-nightly-overlay = {
+      url = "github:nix-community/neovim-nightly-overlay";
+      # inputs.nixpkgs.follows = "nixpkgs";
+    };
     # Plugins overlays
     awesome-neovim-plugins.url = "github:m15a/flake-awesome-neovim-plugins";
     nixneovimplugins.url = "github:jooooscha/nixpkgs-vim-extra-plugins";
