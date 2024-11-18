@@ -45,7 +45,8 @@ opt.undofile = true
 opt.splitright = true
 opt.splitbelow = true
 opt.cmdheight = 0
-vim.opt.inccommand = 'split' -- Preview substitutions live, as you type!
+opt.inccommand = 'split' -- Preview substitutions live, as you type!
+opt.signcolumn = 'yes'
 
 opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 

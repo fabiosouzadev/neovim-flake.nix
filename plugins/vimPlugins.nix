@@ -46,7 +46,7 @@ with pkgs.vimPlugins; [
 
   # lsp extensions
   fidget-nvim
-  neodev-nvim
+  # neodev-nvim
   nvim-lspconfig
 
   # nvim-cmp (autocompletion) and extensions

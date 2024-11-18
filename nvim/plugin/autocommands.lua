@@ -16,10 +16,21 @@ api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
---- Don't create a comment string when hitting <Enter> on a comment line
-vim.api.nvim_create_autocmd('BufEnter', {
-  group = vim.api.nvim_create_augroup('DisableNewLineAutoCommentString', {}),
+local tempdirgroup = api.nvim_create_augroup('tempdir', { clear = true })
+-- Do not set undofile for files in /tmp
+api.nvim_create_autocmd('BufWritePre', {
+  pattern = '/tmp/*',
+  group = tempdirgroup,
   callback = function()
-    vim.opt.formatoptions = vim.opt.formatoptions - { 'c', 'r', 'o' }
+    vim.cmd.setlocal('noundofile')
+  end,
+})
+
+-- Disable spell checking in terminal buffers
+local nospell_group = api.nvim_create_augroup('nospell', { clear = true })
+api.nvim_create_autocmd('TermOpen', {
+  group = nospell_group,
+  callback = function()
+    vim.wo[0].spell = false
   end,
 })
