@@ -238,6 +238,7 @@ local servers = {
       },
     },
   },
+  pyright = {},
 }
 -- Initialize servers
 local lspconfig = require('lspconfig')
