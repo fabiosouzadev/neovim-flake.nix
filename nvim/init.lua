@@ -45,6 +45,7 @@ opt.undofile = true
 opt.splitright = true
 opt.splitbelow = true
 opt.cmdheight = 0
+vim.opt.inccommand = 'split' -- Preview substitutions live, as you type!
 
 opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 
@@ -55,11 +56,14 @@ opt.list = true
 opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 -- Sync clipboard between OS and Neovim.
+--  Schedule the setting after `UiEnter` because it can increase startup-time.
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
-opt.clipboard = 'unnamedplus'
--- Configure Neovim diagnostic messages
+vim.schedule(function()
+  opt.clipboard = 'unnamedplus'
+end)
 
+-- Configure Neovim diagnostic messages
 local function prefix_diagnostic(prefix, diagnostic)
   return string.format(prefix .. ' %s', diagnostic.message)
 end
@@ -111,4 +115,4 @@ cmd.filetype('plugin', 'indent', 'on')
 cmd.packadd('cfilter') -- Allows filtering the quickfix list with :cfdo
 
 -- let sqlite.lua (which some plugins depend on) know where to find sqlite
-vim.g.sqlite_clib_path = require('luv').os_getenv('LIBSQLITE')
+g.sqlite_clib_path = require('luv').os_getenv('LIBSQLITE')
