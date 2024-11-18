@@ -11,4 +11,4 @@
     inherit pkgs;
   };
 in
-  vimPlugins
+  vimPlugins ++ awesomeNeovimPlugins
