@@ -6,8 +6,8 @@ vim.g.did_load_completion_plugin = true
 local cmp = require('cmp')
 local lspkind = require('lspkind')
 local luasnip = require('luasnip')
-local codeium = require ('codeium')
-local sg = require ('sg')
+local codeium = require('codeium')
+local sg = require('sg')
 
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 
@@ -108,9 +108,34 @@ cmp.setup {
     -- Accept ([y]es) the completion.
     --  This will auto-import if your LSP supports it.
     --  This will expand snippets if the LSP sent a snippet.
-    ['<C-y>'] = cmp.mapping.confirm {
+    ['<CR>'] = cmp.mapping.confirm {
+      behavior = cmp.ConfirmBehavior.Insert,
       select = true,
     },
+    ['<Tab>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      elseif luasnip.expand_or_jumpable() then
+        vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-expand-or-jump', true, true, true), '')
+      else
+        fallback()
+      end
+    end, {
+      'i',
+      's',
+    }),
+    ['<S-Tab>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      elseif luasnip.jumpable(-1) then
+        vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-jump-prev', true, true, true), '')
+      else
+        fallback()
+      end
+    end, {
+      'i',
+      's',
+    }),
   },
   sources = cmp.config.sources {
     -- The insertion order influences the priority of the sources

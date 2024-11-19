@@ -40,6 +40,7 @@
     nixpkgs,
     flake-utils,
     gen-luarc,
+    neovim-nightly-overlay,
     awesome-neovim-plugins,
     nixneovimplugins,
     ...
@@ -55,10 +56,14 @@
     neovim-overlay = import ./nix/neovim-overlay.nix {inherit inputs;};
   in
     flake-utils.lib.eachSystem supportedSystems (system: let
+      neovimNightlyOverlay = prev: final: {
+        neovim = neovim-nightly-overlay.packages.${system}.neovim;
+      };
       pkgs = import nixpkgs {
         inherit system;
         overlays = [
           # This adds the plugins overlays
+          neovimNightlyOverlay
           awesome-neovim-plugins.overlays.default
           nixneovimplugins.overlays.default
           # Import the overlay, so that the final Neovim derivation(s) can be accessed via pkgs.<nvim-pkg>
