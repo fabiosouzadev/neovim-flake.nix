@@ -18,6 +18,7 @@ local root_files = {
   '.git',
 }
 
+
 vim.lsp.start {
   name = 'luals',
   cmd = { lua_ls_cmd },

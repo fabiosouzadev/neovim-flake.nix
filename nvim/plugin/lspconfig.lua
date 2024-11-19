@@ -28,7 +28,6 @@
 --    an lsp (for example, opening `main.rs` is associated with `rust_analyzer`) this
 --    function will be executed to configure the current buffer
 
-
 -------- LSP Configs -----------
 -- Enable the following language servers
 --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
@@ -54,6 +53,7 @@ local servers = {
   --
   pyright = {},
 }
+
 -- Initialize servers
 local lspconfig = require('lspconfig')
 for server, server_config in pairs(servers) do
