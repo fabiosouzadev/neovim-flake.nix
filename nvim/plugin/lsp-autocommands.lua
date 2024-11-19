@@ -1,4 +1,4 @@
--- Brief aside: **What is LSP?**
+-- NOTE: Brief aside: **What is LSP?**
 --
 -- LSP is an initialism you've probably heard, but might not understand what it is.
 --
@@ -92,7 +92,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     -- NOTE: Remember that Lua is a real programming language, and as such it is possible
     -- to define small helper and utility functions so you don't have to repeat yourself.
     --
-    -- In this case, we create a function that lets us more easily define mappings specific
+    -- NOTE: In this case, we create a function that lets us more easily define mappings specific
     -- for LSP related items. It sets the mode, buffer and description for us each time.
     local map = function(keys, func, desc)
       vim.keymap.set('n', keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
@@ -143,16 +143,18 @@ vim.api.nvim_create_autocmd('LspAttach', {
     --  See `:help K` for why this keymap.
     map('K', vim.lsp.buf.hover, 'Hover Documentation')
 
+    -- WARN: format with conform
     -- Format the current buffer.
-    map('<leader>f', function()
-      vim.lsp.buf.format { async = true }
-    end, '[lsp] [f]ormat buffer')
-    if client and client.server_capabilities.inlayHintProvider then
-      map('<leader>h', function()
-        local current_setting = vim.lsp.inlay_hint.is_enabled { bufnr = bufnr }
-        vim.lsp.inlay_hint.enable(not current_setting, { bufnr = bufnr })
-      end, '[lsp] toggle inlay hints')
-    end
+    -- map('<leader>f', function()
+    --   vim.lsp.buf.format { async = true }
+    -- end, '[lsp] [f]ormat buffer')
+    -- if client and client.server_capabilities.inlayHintProvider then
+    --   map('<leader>h', function()
+    --     local current_setting = vim.lsp.inlay_hint.is_enabled { bufnr = bufnr }
+    --     vim.lsp.inlay_hint.enable(not current_setting, { bufnr = bufnr })
+    --   end, '[lsp] toggle inlay hints')
+    -- end
+
     -- The following two autocommands are used to highlight references of the
     -- word under your cursor when your cursor rests there for a little while.
     --    See `:help CursorHold` for information about when this is executed
