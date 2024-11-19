@@ -45,14 +45,13 @@
 --    That is to say, every time a new file is opened that is associated with
 --    an lsp (for example, opening `main.rs` is associated with `rust_analyzer`) this
 --    function will be executed to configure the current buffer
-if vim.g.did_load_autocommands_plugin then
-  return
-end
-vim.g.did_load_autocommands_plugin = true
+-- if vim.g.did_load_autocommands_plugin then
+--   return
+-- end
+-- vim.g.did_load_autocommands_plugin = true
 
 -------- Attach -----------
 local api = vim.api
-local keymap = vim.keymap
 
 local function preview_location_callback(_, result)
   if result == nil or vim.tbl_isempty(result) then
