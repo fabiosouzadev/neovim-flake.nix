@@ -1,4 +1,5 @@
 local wk = require 'which-key'
+
 wk.add({
   { '<leader>c', group = '[C]ode' },
   { '<leader>d', group = '[D]ocument' },

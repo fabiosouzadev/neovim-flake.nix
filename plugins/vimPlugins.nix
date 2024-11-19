@@ -66,8 +66,8 @@ with pkgs.vimPlugins; [
 
   # IA
   cmp-tabnine #https://github.com/tzachar/cmp-tabnine/
-  codeium-nvim #https://github.com/Exafunction/codeium.nvim
-  sg-nvim #https://github.com/sourcegraph/sg.nvim
+  # codeium-nvim #https://github.com/Exafunction/codeium.nvim
+  # sg-nvim #https://github.com/sourcegraph/sg.nvim
   # vimPlugins.ChatGPT-nvim
 
   # navigation/editing enhancement plugins
