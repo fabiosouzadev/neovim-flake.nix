@@ -142,6 +142,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     -- Opens a popup that displays documentation about the word under your cursor
     --  See `:help K` for why this keymap.
     map('K', vim.lsp.buf.hover, 'Hover Documentation')
+    map('<C-k>', vim.lsp.buf.signature_help, 'SignatureHelp')
 
     -- WARN: format with conform
     -- Format the current buffer.
