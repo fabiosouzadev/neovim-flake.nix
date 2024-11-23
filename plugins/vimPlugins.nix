@@ -82,7 +82,6 @@ with pkgs.vimPlugins; [
   vim-be-good
   harpoon2
   vim-floaterm
-  which-key-nvim
   nvim-colorizer-lua
 
   #file-managers
