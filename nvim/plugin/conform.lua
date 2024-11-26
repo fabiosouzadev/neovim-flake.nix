@@ -3,7 +3,7 @@ require('conform').setup {
     lua = { 'stylua' },
     nix = { 'alejandra' },
     -- Conform will run multiple formatters sequentially
-    python = { 'isort', 'black' },
+    -- python = { 'isort', 'black' },
     -- Use a sub-list to run only the first available formatter
     javascript = { 'prettier', 'prettierd' },
     php = { 'php-cs-fixer' },
