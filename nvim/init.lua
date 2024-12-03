@@ -46,6 +46,7 @@ opt.splitright = true
 opt.splitbelow = true
 opt.inccommand = 'split' -- Preview substitutions live, as you type!
 opt.signcolumn = 'yes'
+opt.cmdheight = 0
 
 opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 
@@ -116,3 +117,7 @@ cmd.packadd('cfilter') -- Allows filtering the quickfix list with :cfdo
 
 -- let sqlite.lua (which some plugins depend on) know where to find sqlite
 g.sqlite_clib_path = require('luv').os_getenv('LIBSQLITE')
+
+-- Hide and show cmd on macros
+cmd([[ autocmd RecordingEnter * set cmdheight=1 ]])
+cmd([[ autocmd RecordingLeave * set cmdheight=0 ]])
