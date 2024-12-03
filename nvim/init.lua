@@ -44,7 +44,6 @@ opt.nrformats = 'bin,hex' -- 'octal'
 opt.undofile = true
 opt.splitright = true
 opt.splitbelow = true
-opt.cmdheight = 0
 opt.inccommand = 'split' -- Preview substitutions live, as you type!
 opt.signcolumn = 'yes'
 
