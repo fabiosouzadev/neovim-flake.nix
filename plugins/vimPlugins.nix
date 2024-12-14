@@ -87,6 +87,8 @@ with pkgs.vimPlugins; [
   #file-managers
   oil-nvim
 
+  #sessions
+  vim-obsession
   # bleeding-edge plugins from flake inputs
   # (mkNvimPlugin inputs.wf-nvim "wf.nvim") # (example) keymap hints | https://github.com/Cassin01/wf.nvim
 
