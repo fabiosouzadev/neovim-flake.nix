@@ -3,11 +3,11 @@
     "avante-ia": {
       "flake": false,
       "locked": {
-        "lastModified": 1736268915,
-        "narHash": "sha256-Z1fjMMQhWBVjp9xn9LQpINRbwC8hlvs2oQbTaaedJwc=",
+        "lastModified": 1736358019,
+        "narHash": "sha256-du1MyVtsePx+1INoWBv6w4AZz66IUOjDrUkcI6Gcg68=",
         "owner": "yetone",
         "repo": "avante.nvim",
-        "rev": "4b4995d6699b6f59c06f5c3f883252c9dd008b53",
+        "rev": "225e6f95728e9be3b383f9faaa36483c88976f18",
         "type": "github"
       },
       "original": {
@@ -24,11 +24,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1736271070,
-        "narHash": "sha256-6McFwPneyCQ6dDMdpyi2QWLHY9urRpoCctuCXt4uYI8=",
+        "lastModified": 1736357178,
+        "narHash": "sha256-tgCzj/dwvqOJe4ZgyEGVJlbSmjXc39HS+vSxrQig1v0=",
         "owner": "m15a",
         "repo": "flake-awesome-neovim-plugins",
-        "rev": "35aa8c4124bb2944a815204824238581f2309c45",
+        "rev": "3d40ff6bf690decd50541daf527713e66f425c38",
         "type": "github"
       },
       "original": {
