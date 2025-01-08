@@ -1,6 +1,5 @@
 # This overlay, when applied to nixpkgs, adds the final neovim derivation to nixpkgs.
-{inputs}: final: prev:
-with final.pkgs.lib; let
+{inputs}: final: prev: let
   pkgs = final;
 
   # Make sure we use the pinned nixpkgs instance for wrapNeovimUnstable,
@@ -35,16 +34,6 @@ in {
   # This can be symlinked in the devShell's shellHook
   nvim-luarc-json = final.mk-luarc-json {
     plugins = all-plugins;
-  };
-
-  nvim-pkg-hm = mkNeovim {
-    plugins = all-plugins;
-    inherit extraPackages;
-    defaultEditor = true;
-    enable = true;
-    withNodeJs = true;
-    withPython3 = true;
-    withRuby = true;
   };
 
   # You can add as many derivations as you like.

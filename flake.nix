@@ -7,10 +7,11 @@
     gen-luarc.url = "github:mrcjkb/nix-gen-luarc-json";
 
     # Last neovim version
-    neovim-nightly-overlay = {
-      url = "github:nix-community/neovim-nightly-overlay";
-      # inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # neovim-nightly-overlay = {
+    #   url = "github:nix-community/neovim-nightly-overlay";
+    #   # inputs.nixpkgs.follows = "nixpkgs";
+    # };
+
     # Plugins overlays
     awesome-neovim-plugins.url = "github:m15a/flake-awesome-neovim-plugins";
     nixneovimplugins.url = "github:jooooscha/nixpkgs-vim-extra-plugins";
@@ -40,7 +41,6 @@
     nixpkgs,
     flake-utils,
     gen-luarc,
-    neovim-nightly-overlay,
     awesome-neovim-plugins,
     nixneovimplugins,
     ...
@@ -52,20 +52,14 @@
       "aarch64-darwin"
     ];
 
-    # This is where the Neovim derivation is built.
     neovim-overlay = import ./nix/neovim-overlay.nix {inherit inputs;};
-    # This creates the package for home-manager.
-    neovim-home-manager = import ./nix/neovim-home-manager.nix {inherit inputs;};
   in
     flake-utils.lib.eachSystem supportedSystems (system: let
-      neovimNightlyOverlay = prev: final: {
-        neovim = neovim-nightly-overlay.packages.${system}.neovim;
-      };
+      # This is where the Neovim derivation is built.
       pkgs = import nixpkgs {
         inherit system;
         overlays = [
           # This adds the plugins overlays
-          neovimNightlyOverlay
           awesome-neovim-plugins.overlays.default
           nixneovimplugins.overlays.default
           # Import the overlay, so that the final Neovim derivation(s) can be accessed via pkgs.<nvim-pkg>
@@ -74,6 +68,7 @@
           # containing the Neovim API all plugins in the workspace directory.
           # The generated file can be symlinked in the devShell's shellHook.
           gen-luarc.overlays.default
+          # neovim-nightly-overlay.overlays.default
         ];
         config.allowUnfree = true;
       };
