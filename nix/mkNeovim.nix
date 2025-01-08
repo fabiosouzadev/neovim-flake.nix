@@ -36,6 +36,9 @@ with lib;
     viAlias ? appName == null || appName == "nvim",
     # Add a "vim" binary to the build output as an alias?
     vimAlias ? appName == null || appName == "nvim",
+    # For home-manager package
+    defaultEditor ? false,
+    enable ? true,
   }: let
     # This is the structure of a plugin definition.
     # Each plugin in the `plugins` argument list can also be defined as this attrset
@@ -64,7 +67,7 @@ with lib;
     # This nixpkgs util function creates an attrset
     # that pkgs.wrapNeovimUnstable uses to configure the Neovim build.
     neovimConfig = pkgs-wrapNeovim.neovimUtils.makeNeovimConfig {
-      inherit extraPython3Packages withPython3 withRuby withNodeJs viAlias vimAlias;
+      inherit extraPython3Packages withPython3 withRuby withNodeJs viAlias vimAlias defaultEditor enable;
       plugins = normalizedPlugins;
     };
 
@@ -207,8 +210,8 @@ with lib;
         + lib.optionalString isCustomAppName ''
           mv $out/bin/nvim $out/bin/${lib.escapeShellArg appName}
         '';
-      meta.mainProgram 
-        = if isCustomAppName 
-            then appName 
-            else oa.meta.mainProgram;
+      meta.mainProgram =
+        if isCustomAppName
+        then appName
+        else oa.meta.mainProgram;
     })

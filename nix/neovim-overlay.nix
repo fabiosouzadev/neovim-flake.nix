@@ -35,6 +35,16 @@ in {
     plugins = all-plugins;
   };
 
+  nvim-pkg-hm = mkNeovim {
+    plugins = all-plugins;
+    inherit extraPackages;
+    defaultEditor = true;
+    enable = true;
+    withNodeJs = true;
+    withPython3 = true;
+    withRuby = true;
+  };
+
   # You can add as many derivations as you like.
   # Use `ignoreConfigRegexes` to filter out config
   # files you would not like to include.

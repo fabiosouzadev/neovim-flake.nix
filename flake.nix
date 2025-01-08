@@ -54,6 +54,8 @@
 
     # This is where the Neovim derivation is built.
     neovim-overlay = import ./nix/neovim-overlay.nix {inherit inputs;};
+    # This creates the package for home-manager.
+    neovim-home-manager = import ./nix/neovim-home-manager.nix {inherit inputs;};
   in
     flake-utils.lib.eachSystem supportedSystems (system: let
       neovimNightlyOverlay = prev: final: {
@@ -93,6 +95,7 @@
       packages = rec {
         default = nvim;
         nvim = pkgs.nvim-pkg;
+        nvim-hm = pkgs.nvim-pkg-hm;
       };
       devShells = {
         default = shell;
