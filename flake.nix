@@ -13,7 +13,7 @@
     };
 
     # Plugins overlays
-    awesome-neovim-plugins.url = "github:m15a/flake-awesome-neovim-plugins";
+    # awesome-neovim-plugins.url = "github:m15a/flake-awesome-neovim-plugins";
     nixneovimplugins.url = "github:jooooscha/nixpkgs-vim-extra-plugins";
 
     # Add bleeding-edge plugins here.
@@ -42,7 +42,7 @@
     flake-utils,
     gen-luarc,
     neovim-nightly-overlay,
-    awesome-neovim-plugins,
+    # awesome-neovim-plugins,
     nixneovimplugins,
     ...
   }: let
@@ -68,7 +68,7 @@
           gen-luarc.overlays.default
           neovim-nightly-overlay.overlays.default
           # This adds the plugins overlays
-          awesome-neovim-plugins.overlays.default
+          # awesome-neovim-plugins.overlays.default
           nixneovimplugins.overlays.default
         ];
         config.allowUnfree = true;
