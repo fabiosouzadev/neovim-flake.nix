@@ -7,13 +7,13 @@
     gen-luarc.url = "github:mrcjkb/nix-gen-luarc-json";
 
     # Last neovim version
-    neovim-nightly-overlay = {
-      url = "github:nix-community/neovim-nightly-overlay";
-      # inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # neovim-nightly-overlay = {
+    #   url = "github:nix-community/neovim-nightly-overlay";
+    #   # inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     # Plugins overlays
-    # awesome-neovim-plugins.url = "github:m15a/flake-awesome-neovim-plugins";
+    awesome-neovim-plugins.url = "github:m15a/flake-awesome-neovim-plugins";
     nixneovimplugins.url = "github:jooooscha/nixpkgs-vim-extra-plugins";
 
     # Add bleeding-edge plugins here.
@@ -22,10 +22,10 @@
     #   url = "github:Cassin01/wf.nvim";
     #   flake = false;
     # };
-    avante-ia = {
-      url = "github:yetone/avante.nvim";
-      flake = false;
-    };
+    # avante-ia = {
+    #   url = "github:yetone/avante.nvim";
+    #   flake = false;
+    # };
   };
   nixConfig = {
     extra-substituters = [
@@ -41,8 +41,8 @@
     nixpkgs,
     flake-utils,
     gen-luarc,
-    neovim-nightly-overlay,
-    # awesome-neovim-plugins,
+    # neovim-nightly-overlay,
+    awesome-neovim-plugins,
     nixneovimplugins,
     ...
   }: let
@@ -66,10 +66,10 @@
           # containing the Neovim API all plugins in the workspace directory.
           # The generated file can be symlinked in the devShell's shellHook.
           gen-luarc.overlays.default
-          neovim-nightly-overlay.overlays.default
+          # neovim-nightly-overlay.overlays.default
           # This adds the plugins overlays
           # awesome-neovim-plugins.overlays.default
-          nixneovimplugins.overlays.default
+          # nixneovimplugins.overlays.default
         ];
         config.allowUnfree = true;
       };
