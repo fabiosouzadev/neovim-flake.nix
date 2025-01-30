@@ -49,6 +49,7 @@ cmp.setup {
         codeium = '""[CODEIUM]',
         cody = '[CODY]',
         cmp_tabnine = '[TABNINE]',
+        codecompanion = '[codecompanion]',
         treesitter = '[TREE]',
       },
     },
@@ -139,6 +140,7 @@ cmp.setup {
   },
   sources = cmp.config.sources {
     -- The insertion order influences the priority of the sources
+    { name = 'codecompanion' },
     { name = 'codeium' },
     { name = 'cody' },
     { name = 'nvim_lsp', keyword_length = 3 },

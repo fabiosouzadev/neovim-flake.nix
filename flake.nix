@@ -6,15 +6,9 @@
     flake-utils.url = "github:numtide/flake-utils";
     gen-luarc.url = "github:mrcjkb/nix-gen-luarc-json";
 
-    # Last neovim version
-    # neovim-nightly-overlay = {
-    #   url = "github:nix-community/neovim-nightly-overlay";
-    #   # inputs.nixpkgs.follows = "nixpkgs";
-    # };
-
     # Plugins overlays
     awesome-neovim-plugins.url = "github:m15a/flake-awesome-neovim-plugins";
-    nixneovimplugins.url = "github:jooooscha/nixpkgs-vim-extra-plugins";
+    nixneovimplugins.url = "github:jooooscha/nixpkgs-vim-extra-plugins"; # see https://github.com/NixNeovim/NixNeovimPlugins
 
     # Add bleeding-edge plugins here.
     # They can be updated with `nix flake update` (make sure to commit the generated flake.lock)
@@ -67,9 +61,10 @@
           # The generated file can be symlinked in the devShell's shellHook.
           gen-luarc.overlays.default
           # neovim-nightly-overlay.overlays.default
+
           # This adds the plugins overlays
-          # awesome-neovim-plugins.overlays.default
-          # nixneovimplugins.overlays.default
+          awesome-neovim-plugins.overlays.default
+          nixneovimplugins.overlays.default
         ];
         config.allowUnfree = true;
       };
