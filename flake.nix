@@ -62,7 +62,6 @@
 
           # This adds the plugins overlays
           awesome-neovim-plugins.overlays.default
-          nixneovimplugins.overlays.default
         ];
         config.allowUnfree = true;
       };
