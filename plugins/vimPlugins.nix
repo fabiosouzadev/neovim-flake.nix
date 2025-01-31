@@ -79,7 +79,6 @@ with pkgs.vimPlugins; [
   vim-sleuth
   conform-nvim
   indent-blankline-nvim
-  vim-be-good
   harpoon2
   vim-floaterm
   nvim-colorizer-lua
@@ -94,4 +93,9 @@ with pkgs.vimPlugins; [
 
   #Keymap hints
   which-key-nvim
+
+  #Others
+  vim-be-good
+  nvzone-typr #:Typr
+  # nvzone-timerly #https://github.com/nvzone/timerly :TimerlyToggle
 ]
