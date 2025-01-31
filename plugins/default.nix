@@ -10,5 +10,9 @@
     inherit inputs;
     inherit pkgs;
   };
+  buildedPlugins = import ./buildedPlugins.nix {
+    inherit inputs;
+    inherit pkgs;
+  };
 in
-  vimPlugins ++ awesomeNeovimPlugins
+  vimPlugins ++ awesomeNeovimPlugins ++ buildedPlugins

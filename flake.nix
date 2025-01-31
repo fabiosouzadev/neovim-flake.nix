@@ -15,10 +15,10 @@
     #   url = "github:Cassin01/wf.nvim";
     #   flake = false;
     # };
-    # avante-ia = {
-    #   url = "github:yetone/avante.nvim";
-    #   flake = false;
-    # };
+    nightfox-nvim = {
+      url = "github:EdenEast/nightfox.nvim";
+      flake = false;
+    };
   };
   nixConfig = {
     extra-substituters = [

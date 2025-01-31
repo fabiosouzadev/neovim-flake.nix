@@ -190,6 +190,22 @@
         "type": "github"
       }
     },
+    "nightfox-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1735500747,
+        "narHash": "sha256-bVRI77ikBRECJ9Y6UVgZVO+SH46LBU3MtZUDgAYqXBc=",
+        "owner": "EdenEast",
+        "repo": "nightfox.nvim",
+        "rev": "595ffb8f291fc4a9bef3201a28b7c0379a41cdee",
+        "type": "github"
+      },
+      "original": {
+        "owner": "EdenEast",
+        "repo": "nightfox.nvim",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1738136902,
@@ -271,6 +287,7 @@
         "awesome-neovim-plugins": "awesome-neovim-plugins",
         "flake-utils": "flake-utils_2",
         "gen-luarc": "gen-luarc",
+        "nightfox-nvim": "nightfox-nvim",
         "nixpkgs": "nixpkgs_3"
       }
     },
