@@ -1,4 +1,12 @@
+if vim.g.did_load_codecompanion_plugin then
+  return
+end
+vim.g.did_load_codecompanion_plugin = true
+
 require('codecompanion').setup {
+  opts = {
+    language = 'Portuguese',
+  },
   strategies = {
     chat = { adapter = 'gemini' },
     inline = {
