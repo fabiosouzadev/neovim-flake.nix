@@ -49,23 +49,25 @@ local servers = {
   --    https://github.com/pmizio/typescript-tools.nvim
   --
   -- But for many setups, the LSP (`ts_ls`) will work just fine
-  -- ts_ls = {},
-  --
-  -- pyright = {},
+  ts_ls = {},
+  emmet_ls = {
+    filetypes = {
+      'css',
+      'html',
+      'sass',
+      'scss',
+      'xml',
+    },
+  },
+  -- eslint = {},
+  graphql = {
+    filetypes = { 'graphql' },
+  },
 }
 
 -- Initialize servers
 local lspconfig = require('lspconfig')
-for server, server_config in pairs(servers) do
-  local config = {
-    capabilities = require('user.lsp-capabilities').make_client_capabilities(),
-  }
-
-  if server_config then
-    for k, v in pairs(server_config) do
-      config[k] = v
-    end
-  end
-
+for server, config in pairs(servers) do
+  config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
   lspconfig[server].setup(config)
 end

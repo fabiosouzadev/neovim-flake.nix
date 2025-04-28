@@ -19,7 +19,7 @@ vim.lsp.start {
   filetypes = { 'python' },
   root_dir = vim.fs.dirname(vim.fs.find(root_files, { upward = true })[1]),
   single_file_support = true,
-  capabilities = require('user.lsp-capabilities').make_client_capabilities(),
+  capabilities = require('blink.cmp').get_lsp_capabilities(),
   settings = {
     python = {
       venvPath = '.venv',

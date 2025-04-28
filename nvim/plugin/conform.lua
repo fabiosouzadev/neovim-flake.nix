@@ -5,11 +5,20 @@ require('conform').setup {
     -- Conform will run multiple formatters sequentially
     -- python = { 'isort', 'black' },
     -- Use a sub-list to run only the first available formatter
+    html = { 'prettier', 'prettierd' },
     javascript = { 'prettier', 'prettierd' },
+    javascriptreact = { 'prettier', 'prettierd' },
+    typescript = { 'prettier', 'prettierd' },
+    typescriptreact = { 'prettier', 'prettierd' },
     php = { 'php-cs-fixer' },
     yaml = { 'yamlfmt' },
   },
   formatters = {
+    prettierd = {
+      condition = function()
+        return vim.loop.fs_realpath('.prettierrc.js') ~= nil or vim.loop.fs_realpath('.prettierrc.mjs') ~= nil
+      end,
+    },
     ['php-cs-fixer'] = {
       command = 'php-cs-fixer',
       args = {

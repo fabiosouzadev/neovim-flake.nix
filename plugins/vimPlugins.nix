@@ -50,24 +50,28 @@ with pkgs.vimPlugins; [
   nvim-lspconfig
 
   # nvim-cmp (autocompletion) and extensions
-  luasnip # snippets | https://github.com/l3mon4d3/luasnip/
-  nvim-cmp # https://github.com/hrsh7th/nvim-cmp
-  cmp_luasnip # snippets autocompletion extension for nvim-cmp | https://github.com/saadparwaiz1/cmp_luasnip/
-  lspkind-nvim # vscode-like LSP pictograms | https://github.com/onsails/lspkind.nvim/
-  cmp-nvim-lsp # LSP as completion source | https://github.com/hrsh7th/cmp-nvim-lsp/
-  cmp-nvim-lsp-signature-help # https://github.com/hrsh7th/cmp-nvim-lsp-signature-help/
-  cmp-buffer # current buffer as completion source | https://github.com/hrsh7th/cmp-buffer/
-  cmp-path # file paths as completion source | https://github.com/hrsh7th/cmp-path/
-  cmp-nvim-lua # neovim lua API as completion source | https://github.com/hrsh7th/cmp-nvim-lua/
-  cmp-cmdline # cmp command line suggestions
-  cmp-cmdline-history # cmp command line history suggestions
+  # luasnip # snippets | https://github.com/l3mon4d3/luasnip/
+  # nvim-cmp # https://github.com/hrsh7th/nvim-cmp
+  # cmp_luasnip # snippets autocompletion extension for nvim-cmp | https://github.com/saadparwaiz1/cmp_luasnip/
+  # lspkind-nvim # vscode-like LSP pictograms | https://github.com/onsails/lspkind.nvim/
+  # cmp-nvim-lsp # LSP as completion source | https://github.com/hrsh7th/cmp-nvim-lsp/
+  # cmp-nvim-lsp-signature-help # https://github.com/hrsh7th/cmp-nvim-lsp-signature-help/
+  # cmp-buffer # current buffer as completion source | https://github.com/hrsh7th/cmp-buffer/
+  # cmp-path # file paths as completion source | https://github.com/hrsh7th/cmp-path/
+  # cmp-nvim-lua # neovim lua API as completion source | https://github.com/hrsh7th/cmp-nvim-lua/
+  # cmp-cmdline # cmp command line suggestions
+  # cmp-cmdline-history # cmp command line history suggestions
+
+  #blink-cmp (autocompletion) and extension
+  blink-cmp # https://github.com/saghen/blink.cmp
+  friendly-snippets # snippets autocompletion extension for blink | https://github.com/rafamadriz/friendly-snippets/
 
   # DAP
 
   # IA
-  cmp-tabnine #https://github.com/tzachar/cmp-tabnine/
-  codeium-nvim #https://github.com/Exafunction/codeium.nvim
-  sg-nvim #https://github.com/sourcegraph/sg.nvim
+  # cmp-tabnine #https://github.com/tzachar/cmp-tabnine/
+  # codeium-nvim #https://github.com/Exafunction/codeium.nvim
+  # sg-nvim #https://github.com/sourcegraph/sg.nvim
   # vimPlugins.ChatGPT-nvim
 
   # navigation/editing enhancement plugins
