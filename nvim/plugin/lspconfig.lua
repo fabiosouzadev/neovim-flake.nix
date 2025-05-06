@@ -50,6 +50,7 @@ local servers = {
   --
   -- But for many setups, the LSP (`ts_ls`) will work just fine
   ts_ls = {},
+  -- tsserver = {},
   emmet_ls = {
     filetypes = {
       'css',
@@ -59,10 +60,11 @@ local servers = {
       'xml',
     },
   },
-  -- eslint = {},
+  eslint = {},
   graphql = {
     filetypes = { 'graphql' },
   },
+  prismals = {},
 }
 
 -- Initialize servers
@@ -71,3 +73,6 @@ for server, config in pairs(servers) do
   config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
   lspconfig[server].setup(config)
 end
+
+-- Initialize typescript-tools
+require('typescript-tools').setup {}
