@@ -39,7 +39,7 @@ cmp.setup {
       ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
 
       menu = {
-        codecompanion = '[codecompanion]',
+        -- codecompanion = '[codecompanion]',
         buffer = '[BUF]',
         nvim_lsp = '[LSP]',
         nvim_lsp_signature_help = '[LSP]',
@@ -140,7 +140,7 @@ cmp.setup {
   },
   sources = cmp.config.sources {
     -- The insertion order influences the priority of the sources
-    { name = 'codecompanion' },
+    -- { name = 'codecompanion' },
     { name = 'codeium' },
     { name = 'cody' },
     { name = 'nvim_lsp', keyword_length = 3 },
@@ -163,7 +163,7 @@ cmp.setup {
 
 cmp.setup.filetype('lua', {
   sources = cmp.config.sources {
-    { name = 'codecompanion' },
+    -- { name = 'codecompanion' },
     { name = 'nvim_lua' },
     { name = 'nvim_lsp', keyword_length = 3 },
     { name = 'path' },
