@@ -14,5 +14,6 @@
     inherit inputs;
     inherit pkgs;
   };
+  # add more
 in
   vimPlugins ++ awesomeNeovimPlugins ++ buildedPlugins
