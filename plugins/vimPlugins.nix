@@ -74,7 +74,7 @@ with pkgs.vimPlugins; [
   # codeium-nvim #https://github.com/Exafunction/codeium.nvim
   # sg-nvim #https://github.com/sourcegraph/sg.nvim
   # vimPlugins.ChatGPT-nvim
-  avante-nvim
+  # avante-nvim
 
   # navigation/editing enhancement plugins
   nvim-surround # https://github.com/kylechui/nvim-surround/

@@ -13,44 +13,29 @@ require('codecompanion').setup {
       show_settings = true,
     },
   },
-  adapters = {
-    llama3 = function()
-      return require('codecompanion.adapters').extend('ollama', {
-        name = 'llama3', -- Give this adapter a different name to differentiate it from the default ollama adapter
-        schema = {
-          model = {
-            default = 'deepseek-coder:1.3b-instruct-q4_K_M',
-            -- default = 'deepseek-coder-v2:16b',
-          },
-          -- num_ctx = {
-          --   default = 16384,
-          -- },
-          -- num_predict = {
-          --   default = -1,
-          -- },
-        },
-      })
-    end,
-  },
+  -- adapters = {
+  --   llama3 = function()
+  --     return require('codecompanion.adapters').extend('ollama', {
+  --       name = 'llama3', -- Give this adapter a different name to differentiate it from the default ollama adapter
+  --       schema = {
+  --         model = {
+  --           default = 'deepseek-coder:1.3b-instruct-q4_K_M',
+  --           -- default = 'deepseek-coder-v2:16b',
+  --         },
+  --         -- num_ctx = {
+  --         --   default = 16384,
+  --         -- },
+  --         -- num_predict = {
+  --         --   default = -1,
+  --         -- },
+  --       },
+  --     })
+  --   end,
+  -- },
   strategies = {
-    -- chat = { adapter = 'gemini' },
-    -- inline = {
-    --   adapter = 'gemini',
-    --   layout = 'horizontal',
-    --   keymaps = {
-    --     accept_change = { modes = { n = 'ga' }, description = 'Accept the suggested change' },
-    --     reject_change = { modes = { n = 'gx' }, description = 'Reject the suggested change' },
-    --   },
-    -- },
-    -- agent = { adapter = 'gemini' },
-    -- cmd = {
-    --   adapter = 'gemini',
-    -- },
-    chat = {
-      adapter = 'llama3',
-    },
+    chat = { adapter = 'gemini' },
     inline = {
-      adapter = 'llama3',
+      adapter = 'gemini',
       layout = 'horizontal',
       keymaps = {
         accept_change = { modes = { n = 'ga' }, description = 'Accept the suggested change' },
