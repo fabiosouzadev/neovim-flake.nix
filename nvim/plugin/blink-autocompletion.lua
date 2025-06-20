@@ -61,6 +61,9 @@ require('blink-cmp').setup {
   -- elsewhere in your config, without redefining it, due to `opts_extend`
   sources = {
     default = { 'lsp', 'path', 'snippets', 'buffer' },
+    per_filetype = {
+      codecompanion = { 'codecompanion' },
+    },
   },
 
   -- See :h blink-cmp-config-fuzzy for more information

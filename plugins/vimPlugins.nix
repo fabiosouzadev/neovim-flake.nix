@@ -74,7 +74,11 @@ with pkgs.vimPlugins; [
   # codeium-nvim #https://github.com/Exafunction/codeium.nvim
   # sg-nvim #https://github.com/sourcegraph/sg.nvim
   # vimPlugins.ChatGPT-nvim
-  # avante-nvim
+  avante-nvim
+  codecompanion-nvim
+  render-markdown-nvim # To render markdown
+  img-clip-nvim #To render images;
+  mini-diff-nvim # To diff
 
   # navigation/editing enhancement plugins
   nvim-surround # https://github.com/kylechui/nvim-surround/

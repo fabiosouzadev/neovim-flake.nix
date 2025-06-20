@@ -31,4 +31,10 @@ end
 require('mini.pairs').setup()
 
 -- ... and there is more!
---  Check out: https://github.com/echasnovski/mini.nvi
+--  Check out: https://github.com/echasnovski/mini.nvim
+
+local diff = require('mini.diff')
+diff.setup {
+  -- Disabled by default
+  source = diff.gen_source.none(),
+}
