@@ -78,7 +78,7 @@ with pkgs.vimPlugins; [
   codecompanion-nvim
   render-markdown-nvim # To render markdown
   img-clip-nvim #To render images;
-  mini-diff-nvim # To diff
+  mini-diff # To diff
 
   # navigation/editing enhancement plugins
   nvim-surround # https://github.com/kylechui/nvim-surround/
