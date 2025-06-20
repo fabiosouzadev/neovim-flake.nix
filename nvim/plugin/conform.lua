@@ -14,11 +14,6 @@ require('conform').setup {
     yaml = { 'yamlfmt' },
   },
   formatters = {
-    prettierd = {
-      condition = function()
-        return vim.loop.fs_realpath('.prettierrc.js') ~= nil or vim.loop.fs_realpath('.prettierrc.mjs') ~= nil
-      end,
-    },
     ['php-cs-fixer'] = {
       command = 'php-cs-fixer',
       args = {
